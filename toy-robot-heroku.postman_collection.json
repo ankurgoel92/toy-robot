@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "846cbcaa-b260-4e7e-816b-a6d38a2e9ecb",
+		"name": "toy-robot-heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PlaceRobot",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"command\": \"PLACE 0,0,NORTH\"\n}"
+				},
+				"url": {
+					"raw": "https://my-toy-robot.herokuapp.com/rest/v1/robot",
+					"protocol": "https",
+					"host": [
+						"my-toy-robot",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"rest",
+						"v1",
+						"robot"
+					]
+				},
+				"description": "PLACE will put the toy robot on the table in position X,Y and facing NORTH,SOUTH, EAST or WEST."
+			},
+			"response": []
+		},
+		{
+			"name": "MoveRobot",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"command\": \"MOVE\"\n}"
+				},
+				"url": {
+					"raw": "https://my-toy-robot.herokuapp.com/rest/v1/robot/1",
+					"protocol": "https",
+					"host": [
+						"my-toy-robot",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"rest",
+						"v1",
+						"robot",
+						"1"
+					]
+				},
+				"description": "MOVE will move the toy robot one unit forward in the direction it is currently facing."
+			},
+			"response": []
+		},
+		{
+			"name": "Report",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://my-toy-robot.herokuapp.com/rest/v1/robot/1",
+					"protocol": "https",
+					"host": [
+						"my-toy-robot",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"rest",
+						"v1",
+						"robot",
+						"1"
+					]
+				},
+				"description": "REPORT will announce the X,Y and F of the robot."
+			},
+			"response": []
+		},
+		{
+			"name": "LeftRotateRobot",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"command\": \"LEFT\"\n}"
+				},
+				"url": {
+					"raw": "https://my-toy-robot.herokuapp.com/rest/v1/robot/1",
+					"protocol": "https",
+					"host": [
+						"my-toy-robot",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"rest",
+						"v1",
+						"robot",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RightRotateRobot",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"command\": \"RIGHT\"\n}"
+				},
+				"url": {
+					"raw": "https://my-toy-robot.herokuapp.com/rest/v1/robot/1",
+					"protocol": "https",
+					"host": [
+						"my-toy-robot",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"rest",
+						"v1",
+						"robot",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

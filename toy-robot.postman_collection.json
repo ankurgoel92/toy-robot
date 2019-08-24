@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "f409f061-f79b-466b-8c00-8f97873f5e07",
+		"name": "toy-robot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PlaceRobot",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"command\": \"PLACE 0,0,NORTH\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/v1/robot",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"v1",
+						"robot"
+					]
+				},
+				"description": "PLACE will put the toy robot on the table in position X,Y and facing NORTH,SOUTH, EAST or WEST."
+			},
+			"response": []
+		},
+		{
+			"name": "MoveRobot",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"command\": \"MOVE\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/v1/robot/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"v1",
+						"robot",
+						"1"
+					]
+				},
+				"description": "MOVE will move the toy robot one unit forward in the direction it is currently facing."
+			},
+			"response": []
+		},
+		{
+			"name": "Report",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/v1/robot/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"v1",
+						"robot",
+						"1"
+					]
+				},
+				"description": "REPORT will announce the X,Y and F of the robot."
+			},
+			"response": []
+		},
+		{
+			"name": "LeftRotateRobot",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"command\": \"LEFT\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/v1/robot/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"v1",
+						"robot",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RightRotateRobot",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"command\": \"RIGHT\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/v1/robot/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"v1",
+						"robot",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
