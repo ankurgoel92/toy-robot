@@ -6,12 +6,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Entity
 public class Robot {
-
-    public static final Integer MAX_POSITION = 4;
-    public static final Integer MIN_POSITION = 0;
+    private static final Logger LOG = LoggerFactory.getLogger(Robot.class);
     public static final String ROBOT_MISSING = "ROBOT MISSING";
+    public static final String ROBOT_OUT_OF_BOUNDS = "Robot can not be placed outside the 5x5 table";
+    
+    public static final int MAX_POSITION = 4;
+    public static final int MIN_POSITION = 0;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,25 +43,32 @@ public class Robot {
     public void moveUp() {
         if (getY() < Robot.MAX_POSITION) {
             y++;
+        } else {
+            LOG.info("Robot cannot move up as it is on the top edge, ignoring move operation");
         }
     }
 
     public void moveDown() {
         if (getY() > Robot.MIN_POSITION) {
             y--;
+        } else {
+            LOG.info("Robot cannot move down as it is on the bottom edge, ignoring move operation");
         }
     }
 
     public void moveRight() {
         if (getX() < Robot.MAX_POSITION) {
             x++;
+        } else {
+            LOG.info("Robot cannot move right as it is on the right edge, ignoring move operation");
         }
-
     }
 
     public void moveLeft() {
         if (getX() > Robot.MIN_POSITION) {
             x--;
+        } else {
+            LOG.info("Robot cannot move left as it is on the lef edge, ignoring move operation");
         }
     }
 

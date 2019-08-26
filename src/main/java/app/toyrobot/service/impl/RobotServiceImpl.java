@@ -1,5 +1,7 @@
 package app.toyrobot.service.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,8 @@ import app.toyrobot.web.dto.Report;
 
 @Service
 public class RobotServiceImpl implements RobotService {
+    
+    private static final Logger LOG = LoggerFactory.getLogger(RobotServiceImpl.class);
 
     @Autowired
     private RobotRepository robotRepository;
@@ -25,6 +29,7 @@ public class RobotServiceImpl implements RobotService {
 
     @Override
     public Robot placeRobot(InputCommand command) {
+        LOG.info("Saving Robot from command {}", command);
         return robotRepository.save(convertToEntity(command));
     }
 
@@ -35,6 +40,7 @@ public class RobotServiceImpl implements RobotService {
 
     @Override
     public void deleteRobot(Long id) {
+        LOG.info("Deleting Robot By Id {}", id);
         robotRepository.deleteById(id);
     }
 
@@ -53,6 +59,7 @@ public class RobotServiceImpl implements RobotService {
     }
 
     private Robot getRobot(long id) {
+        LOG.info("Finding Robot By Id {}", id);
         final Robot robot = robotRepository.findById(id).orElseThrow(() -> new EmptyResultDataAccessException(1));
         return robot;
     }

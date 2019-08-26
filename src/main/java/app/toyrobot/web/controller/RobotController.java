@@ -7,7 +7,7 @@ import io.swagger.annotations.ApiOperation;
 
 public interface RobotController {
 
-    @ApiOperation(value = "Places the Robot on the grid.", notes = "This should be the very first opertaion for the robot to be able to move or chage directions.", response = Robot.class)
+    @ApiOperation(value = "Places the Robot on the grid.", notes = "This should be the very first opertaion for the robot to be able to move or change directions.", response = Robot.class)
     Robot place(InputCommand command);
 
     @ApiOperation(value = "Moves the robot forward or changes the facing.", notes = "This operation can only be performed after the robot has been placed.", response = Robot.class)
